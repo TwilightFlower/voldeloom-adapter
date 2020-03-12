@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "io.github.nuclearfarts.voldeloomadapter.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "ResourceDownloaderMixin",
+    "RelaunchClassLoaderMixin",
+    "RelaunchLibraryManagerMixin",
+    "BlockMixin",
+    "EntityPlayerMixin",
+    "ItemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
