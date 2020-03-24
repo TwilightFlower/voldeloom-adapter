@@ -1,7 +1,20 @@
-plugins {
-	id 'fabric-loom' version '0.2.7-CURSEDFORGE'
-	id 'maven-publish'
+buildscript {
+	repositories {
+        jcenter()
+		maven { url 'https://jitpack.io' }
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+    }
+	dependencies {
+		classpath "com.github.Nuclearfarts:fabric-loom:b0a0c95fb4"
+	}
 }
+
+apply plugin: net.fabricmc.loom.LoomGradlePlugin
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -11,8 +24,12 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	mavenLocal()
-	maven { url = 'https://files.minecraftforge.net/maven' }
+	maven {
+            name = 'jitpack'
+            url = 'https://jitpack.io/'
+        }
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        mavenLocal()
 }
 
 minecraft {
@@ -75,6 +92,6 @@ publishing {
 	// select the repositories you want to publish to
 	repositories {
 		// uncomment to publish to the local maven
-		// mavenLocal()
+		mavenLocal()
 	}
 }
